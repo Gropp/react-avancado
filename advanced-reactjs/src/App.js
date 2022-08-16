@@ -1,14 +1,16 @@
-import React, {useRef, useState, useEffect} from "react"
+import React from "react"
 
 //programacao funcional
-//useRef
+//Smart Component
 
 function App () {
 
-  // retorna o componente enviando os argumentos necessarios
+  // chama no botao a funcao handleClick ao evento onClick
   return (
     <>
-      <h1>React</h1>
+      <div>
+        React
+      </div>
     </>
   )
 }

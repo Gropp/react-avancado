@@ -1,22 +1,15 @@
-import React from "react"
-import PetShop from "./Components/PetShop/PetShop"
+import React, {useRef, useState, useEffect} from "react"
+
 //programacao funcional
-//typechecking
+//useRef
 
 function App () {
-  
-  const handleClick = () => {
-    console.log('Iniciando banho...')
-  }
 
   // retorna o componente enviando os argumentos necessarios
   return (
-    <PetShop
-      dogs={2}
-      customerName='Fernando Gropp'
-      onClick={handleClick}
-      status="Done"
-    />
+    <>
+      <h1>React</h1>
+    </>
   )
 }
 

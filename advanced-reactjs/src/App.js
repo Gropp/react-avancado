@@ -1,49 +1,30 @@
-import React, { Component } from "react";
-import Twitter from "./Components/Twitter/Twitter";
+import React, { useState, useEffect } from "react"
+import { ThemesContext, themes} from './Components/Theme/Theme'
+// importa o componente/api criado
+import Card from './Components/Card/Card'
 
-class  App extends Component {
 
-  //variavel para flag
-  state = {
-    loading: false,
-    actived: true
-  }
-  
-  componentDidMount() {
+//programacao funcional
+function App () {
+  //criando um estado
+  //toda vez que vc chama um state pelo setXYZ ele renderiza o componente
+  const [token, setToken] = useState()
+
+  //o useEffect fica monitorando o token e a cada 4 segundos passa o valor dele
+  useEffect(() => {
     setTimeout(() => {
-      this.setState({
-        loading: true
-      })
-    }, 3000)
-  }
+      setToken('34fsdfasd53w6fg3wfh42g42t32')
+    }, 4000)
+  }, [setToken])
 
-  onRemove = () => {
-    this.setState({
-      actived: false
-    })
-  }
-
-  render () {
-
-    // cria uma lista posts
-    const posts = [{
-      title: 'xpto',
-      description: 'foo'
-    }, {
-      title: 'xpto',
-      description: 'foo'
-    }]
-
-    return (
-      <div>
-        <button onClick={this.onRemove}>Remover Component</button>
-        {/* testa se o estado esta ativado */}
-        {this.state.actived && (
-          <Twitter posts={posts} loading={this.state.loading} />
-        )}
-      </div>
-    )
-  }
+  return (
+    //os providers passam os valores para os componentes filhos
+    //neste caso o tema e o toke que é usado para acesso
+    // ... spread - passa todos os valores do objeto themes
+    <ThemesContext.Provider value={{...themes.secondary, token}}>
+      <Card />
+    </ThemesContext.Provider>
+  )
 }
 
 export default App

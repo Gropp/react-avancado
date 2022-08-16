@@ -1,37 +1,24 @@
-import React, { Component } from "react"
-import Counter from "./Components/Counter/Counter"
-//programacao classes
-//renders-props
+import React from "react"
+import PetShop from "./Components/PetShop/PetShop"
+//programacao funcional
+//typechecking
 
-const Buttons = ({ increment, decrement, count}) => (
-  <div>
-    <h1>Valor Atual: {count}</h1>
-    <div>
-      <button onClick={increment}>Adicionar</button>
-    </div>
-    <div>
-      <button onClick={decrement}>Diminuir</button>
-    </div>
-  </div>
-)
+function App () {
+  
+  const handleClick = () => {
+    console.log('Iniciando banho...')
+  }
 
-class App extends Component {
-    render () {
-      return (
-        <div>
-          <Counter render={
-              ({ increment, decrement, count }) => (
-                <Buttons 
-                increment={increment}
-                decrement={decrement}
-                count={count}
-                />
-              )
-            }>
-          </Counter>
-        </div>
-      )
-    }
+  // retorna o componente enviando os argumentos necessarios
+  return (
+    <PetShop
+      dogs={2}
+      customerName='Fernando Gropp'
+      onClick={handleClick}
+      status="Done"
+    />
+  )
 }
+
 
 export default App

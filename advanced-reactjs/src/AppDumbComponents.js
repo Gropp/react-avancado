@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, memo} from "react"
 import Button from "./Components/Button"
 import Calc from "./Components/Calc"
 
@@ -53,5 +53,4 @@ function App () {
   )
 }
 
-
-export default App
+export default memo(App)
